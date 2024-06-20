@@ -280,7 +280,73 @@
     // } else {
     //   alert('Inserisci numeri validi.');
     // }
-    
+
+ // STESSO ESERCIZIO CON IL CICLO WHILE
+
+let operazioneScelta;
+let num1, num2, risultato;
+let continua = true;
+
+while (continua) {
+    operazioneScelta = prompt(`Scegli un'operazione tra:
+    - somma
+    - sottrazione
+    - moltiplicazione
+    - divisione
+    - modulo (solo tra interi)
+    - potenza
+    - media
+    - esci`).toLowerCase();
+
+    if (operazioneScelta === 'esci') {
+        continua = false;
+        alert('Uscita dal programma.');
+        break;
+    }
+
+    num1 = parseFloat(prompt("Inserisci il primo numero:"));
+    num2 = parseFloat(prompt("Inserisci il secondo numero:"));
+
+    if (!isNaN(num1) && !isNaN(num2)) {
+        if (operazioneScelta === 'somma') {
+            risultato = num1 + num2;
+            alert(`La somma di ${num1} e ${num2} è ${risultato}`);
+        } else if (operazioneScelta === 'sottrazione') {
+            risultato = num1 - num2;
+            alert(`La sottrazione di ${num1} e ${num2} è ${risultato}`);
+        } else if (operazioneScelta === 'moltiplicazione') {
+            risultato = num1 * num2;
+            alert(`Il prodotto di ${num1} e ${num2} è ${risultato}`);
+        } else if (operazioneScelta === 'divisione') {
+            if (num2 !== 0) {
+                risultato = num1 / num2;
+                alert(`Il quoziente di ${num1} diviso ${num2} è ${risultato}`);
+            } else {
+                alert(`Impossibile dividere per zero.`);
+            }
+        } else if (operazioneScelta === 'modulo') {
+            if (Number.isInteger(num1) && Number.isInteger(num2)) {
+                risultato = num1 % num2;
+                alert(`Il resto della divisione intera tra ${num1} e ${num2} è ${risultato}`);
+            } else {
+                alert(`L'operazione di modulo richiede numeri interi.`);
+            }
+        } else if (operazioneScelta === 'potenza') {
+            risultato = Math.pow(num1, num2);
+            alert(`${num1} elevato alla ${num2}-esima potenza è ${risultato}`);
+        } else if (operazioneScelta === 'media') {
+            risultato = (num1 + num2) / 2;
+            alert(`La media tra ${num1} e ${num2} è ${risultato}`);
+        } else {
+            alert('Operazione non valida.');
+        }
+    } else {
+        alert('Inserisci numeri validi.');
+    }
+}
+   
+
+
 // OPERATORE LOGICO MATH.POW
 // let base = 2;
 // let esponente = 3;
@@ -520,49 +586,85 @@
 // }
 
 
-// ESERCIZIO CICLO FOR RINCORRI LA DECINA
-// Scrivi un programma che che stampi i numeri da 1 a 100 andando a capo ogni 10.
+// // ESERCIZIO CICLO FOR RINCORRI LA DECINA
+// // Scrivi un programma che che stampi i numeri da 1 a 100 andando a capo ogni 10.
 
-// for(let i = 1; i <= 100; i++ ){
-// console.log(i + "\t");
-//   if(i % 10 == 0){
-//     console.log();
-//   }
+// // for(let i = 1; i <= 100; i++ ){
+// // console.log(i + "\t");
+// //   if(i % 10 == 0){
+// //     console.log();
+// //   }
+// // }
+
+// // ESERCIZIO CICLO FOR IL CALENDARIO MEDIOCRE
+// // Scrivi un programma che dato:
+// // - Il numero di giorni nel mese
+// // - Il giorno della settimana in cui questo comincia (0: lunedì ... 6: domenica)
+// // Stampi il calendario di un mese.
+
+// function stampaCalendario(giorniNelMese, primoGiornoSettimana) {
+//     const giorniSettimana = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica'];
+
+//     // Stampa i giorni della settimana
+//     let calendario = '';
+//     for (let i = 0; i < 7; i++) {
+//         calendario += giorniSettimana[i] + '\t';
+//     }
+//     calendario += '\n';
+
+//     // Aggiungi celle vuote per i giorni prima dell'inizio del mese
+//     for (let i = 0; i < primoGiornoSettimana; i++) {
+//         calendario += '\t';
+//     }
+
+//     // Stampa i giorni del mese
+//     for (let giorno = 1; giorno <= giorniNelMese; giorno++) {
+//         calendario += giorno + '\t';
+
+//         // Vai a capo ogni domenica
+//         if ((giorno + primoGiornoSettimana) % 7 === 0) {
+//             calendario += '\n';
+//         }
+//     }
+
+//     console.log(calendario);
 // }
 
-// ESERCIZIO CICLO FOR IL CALENDARIO MEDIOCRE
-// Scrivi un programma che dato:
-// - Il numero di giorni nel mese
-// - Il giorno della settimana in cui questo comincia (0: lunedì ... 6: domenica)
-// Stampi il calendario di un mese.
-
-function stampaCalendario(giorniNelMese, primoGiornoSettimana) {
-    const giorniSettimana = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica'];
-
-    // Stampa i giorni della settimana
-    let calendario = '';
-    for (let i = 0; i < 7; i++) {
-        calendario += giorniSettimana[i] + '\t';
-    }
-    calendario += '\n';
-
-    // Aggiungi celle vuote per i giorni prima dell'inizio del mese
-    for (let i = 0; i < primoGiornoSettimana; i++) {
-        calendario += '\t';
-    }
-
-    // Stampa i giorni del mese
-    for (let giorno = 1; giorno <= giorniNelMese; giorno++) {
-        calendario += giorno + '\t';
-
-        // Vai a capo ogni domenica
-        if ((giorno + primoGiornoSettimana) % 7 === 0) {
-            calendario += '\n';
-        }
-    }
-
-    console.log(calendario);
-}
-
 // Esempio: stampare il calendario di un mese con 30 giorni che inizia di mercoledì (2)
-stampaCalendario(30, 2);
+// stampaCalendario(30, 2);
+
+
+// ------------------------------ \\
+
+/*
+Scrivi una funzione che dato un numero intero positivo (massimo 9999) conti da quante cifre è formato.
+
+Esempio:
+Input : 9 → output: 1 cifra
+Input : 99 → output: 2 cifre
+Input: 12000 → output: Numero troppo grande
+*/
+
+function contaCifre(numeri){
+    // INSERIRE UNA CONDIZIONE PER CAPIRE SE IL NUMERO È POSITIVO O NEGATIVO
+    // IN QUESTO CASO L'OUTPUT TORNA POSITIVO
+    if(numeri > 999){
+        return "Numero positivo";
+    }
+    // QUI L'OUTPUT TORNA NEGATIVO 
+     if(numeri < 0){
+        return "Numero negativo";
+    }
+    
+       return `Il numero ${numeri} è formato da cifre = ${numeri.toString().length} ` 
+    }
+        
+    console.log(contaCifre(9));
+    console.log(contaCifre(200));
+    console.log(contaCifre(18));
+
+
+
+
+
+
